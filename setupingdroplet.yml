@@ -1,8 +1,6 @@
 ---
 - hosts: all
   become: true
-  vars_files:
-    - vars/default.yml
 
   tasks:
     - name: Install Prerequisites
@@ -17,9 +15,6 @@
 
     - name: Update apt
       apt: update_cache=yes
-
-    - name: Install required system packages
-      apt: name={{ sys_packages }} state=latest
 
     - name: UFW - Allow SSH connections
       ufw:
