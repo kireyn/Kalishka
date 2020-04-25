@@ -4,7 +4,7 @@ apt update
 
 ssh-keygen
 
-apt install python3-pip
+apt install python3-pip -y
 
 pip3 install ansible
 
