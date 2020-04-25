@@ -1,11 +1,17 @@
 # kalishka
 ## Creating DO droplet(Ansible Control Node) and setup default settings:
+apt update
+
 ssh-keygen
+
 apt install python3-pip
+
 pip3 install ansible
+
 git clone https://github.com/kireyn/kalishka.git
 
 mkdir /etc/ansible
+## Manual edit host file
 sudo nano /etc/ansible/hosts
 
 ```
