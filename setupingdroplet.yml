@@ -3,7 +3,7 @@
   become: true
   vars_files:
     - vars/default.yml
-
+  
   tasks:
     - name: Disable password authentication for root
       lineinfile:
@@ -11,14 +11,42 @@
         state: present
         regexp: '^#?PermitRootLogin'
         line: 'PermitRootLogin prohibit-password'
+        
+#    - name: Make sure we have a 'wheel' group
+#      group:
+#        name: wheel
+#        state: present
 
-    - name: Update apt
-      apt: update_cache=yes
+#    - name: Allow 'wheel' group to have passwordless sudo
+#      lineinfile:
+#        path: /etc/sudoers
+#        state: present
+#        regexp: '^%wheel'
+#        line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+#        validate: '/usr/sbin/visudo -cf %s'
 
-    - name: UFW - Allow SSH connections
-      ufw:
-        rule: allow
-        name: OpenSSH
+#    - name: Create a new regular user with sudo privileges
+#      user:
+#        name: "{{ create_user }}"
+#        state: present
+#        groups: wheel
+#        append: true
+#        create_home: true
+#        shell: /bin/bash
+
+#    - name: Set authorized key for remote user
+#      authorized_key:
+#        user: "{{ create_user }}"
+#        state: present
+#       key: "{{ copy_local_key }}"
+
+#    - name: Update apt
+#      apt: update_cache=yes
+
+#    - name: UFW - Allow SSH connections
+#      ufw:
+#        rule: allow
+#        name: OpenSSH
 
     - name: UFW - Deny all other incoming traffic by default
       ufw:
