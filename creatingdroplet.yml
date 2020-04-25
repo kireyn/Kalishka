@@ -9,10 +9,10 @@
         state: present
         name: mydroplet
         oauth_token: insertyourtoken
-        size: 1gb
+        size: 2gb
         ssh_keys: insert `curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer insertyourtoken" "https://api.digitalocean.com/v2/ac
 count/keys"`
-        region: ams2
+        region: ams3
         image: ubuntu-18-04-x64
         wait_timeout: 500
       register: my_droplet
