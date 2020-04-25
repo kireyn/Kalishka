@@ -34,4 +34,4 @@ ansible all -m ping --private-key=~/.ssh/id_rsa
 ## Setuping Ansible Host:
 ansible-playbook -l new_server  setupingdroplet.yml --private-key=~/.ssh/id_rsa
 ## Running Ad-Hoc Commands on Ansible Host:
-ansible server1 -a 'cd /opt/Osmedeus && ./osmedeus.py -m subdomain -t example.com'  --private-key=~/.ssh/id_rsa
+ansible new_server -a 'cd /opt/Osmedeus && ./osmedeus.py -m subdomain -t example.com'  --private-key=~/.ssh/id_rsa
