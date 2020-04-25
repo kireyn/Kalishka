@@ -61,5 +61,6 @@
       git:
         repo: 'https://github.com/j3ssie/Osmedeus.git'
         dest: /opt/Osmedeus
+        
     - name: Installing Osmedeus
       shell: cd /opt/Osmedeus &&  ./install.sh
