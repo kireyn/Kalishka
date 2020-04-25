@@ -25,8 +25,12 @@ ansible_python_interpreter=/usr/bin/python3
 ```
 ## Creating Ansible Host
 ansible-playbook -i hosts creatingdroplet.yml
+
+Add droplet IP do /etc/ansible/hosts
+
 ## Control of creation:
 ansible all -m ping --private-key=~/.ssh/id_rsa
+
 ## Setuping Ansible Host:
 ansible-playbook -l new_server  setupingdroplet.yml --private-key=~/.ssh/id_rsa
 ## Running Ad-Hoc Commands on Ansible Host:
